@@ -1,11 +1,14 @@
 import React from "react";
+import Ticket from "./Ticket";
 
 function TicketList() {
   return (
     <React.Fragment>
-      <h3>List of Tickets</h3>
+      <h2>List of Tickets</h2>
+      <hr />
+      <Ticket names="Homer and Bart" location="Springfield Elementary" issue="Need a ride." />
     </React.Fragment>
   );
 }
 
-export default TicketList();
+export default TicketList;

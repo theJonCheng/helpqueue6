@@ -6,6 +6,7 @@ function App() {
   return (
     <React.Fragment>
       <Header />
+      <TicketList />
     </React.Fragment>
   );
 }
