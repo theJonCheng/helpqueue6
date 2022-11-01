@@ -16,17 +16,19 @@ class TicketControl extends React.Component {
   };
 
   handleAddNewTicket = (ticket) => {
-    this.setState((newMainTicketList) => {
+    const newMainTicketList = this.state.mainTicketList.concat(ticket);
+    this.setState({
+      formShowing: false,
       mainTicketList: newMainTicketList,
-    })
-  }
+    });
+  };
 
   render() {
     let currentlyDisplaying = null;
     let buttonText = null;
 
     if (this.state.formShowing) {
-      currentlyDisplaying = <NewTicketForm />;
+      currentlyDisplaying = <NewTicketForm onAddingNewTicket={this.handleAddNewTicket} />;
       buttonText = "Return to Ticket List";
     } else {
       currentlyDisplaying = <TicketList />;
