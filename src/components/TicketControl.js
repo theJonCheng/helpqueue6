@@ -8,6 +8,7 @@ class TicketControl extends React.Component {
     this.state = {
       formShowing: false,
       mainTicketList: [],
+      selectedTicket: null,
     };
   }
 
@@ -20,6 +21,13 @@ class TicketControl extends React.Component {
     this.setState({
       formShowing: false,
       mainTicketList: newMainTicketList,
+    });
+  };
+
+  handleSelectTicket = (id) => {
+    const selectedTicket = this.state.mainTicketList.filter((ticket) => ticket.id === id)[0];
+    this.setState({
+      selectedTicket: selectedTicket,
     });
   };
 
