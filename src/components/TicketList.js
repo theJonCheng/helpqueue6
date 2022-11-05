@@ -4,10 +4,9 @@ import Ticket from "./Ticket";
 function TicketList(props) {
   return (
     <React.Fragment>
-      <h2>List of Tickets</h2>
       <hr />
       {props.ticketList.map((ticket) => (
-        <Ticket names={ticket.names} location={ticket.location} issue={ticket.issue} />
+        <Ticket whenTicketClicked={props.onSelectingTicket} names={ticket.names} location={ticket.location} issue={ticket.issue} id={ticket.id} />
       ))}
     </React.Fragment>
   );
