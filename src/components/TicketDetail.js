@@ -1,7 +1,7 @@
 import React from "react";
 
 function TicketDetail(props) {
-  const { ticket } = props;
+  const { ticket, onClickingDelete } = props;
   return (
     <React.Fragment>
       <hr />
@@ -14,6 +14,7 @@ function TicketDetail(props) {
       </p>
       <hr />
       <button onClick={props.onClickingEdit}>Edit Ticket</button>
+      <button onClick={() => onClickingDelete(ticket.id)}>Delete Ticket</button>
       <hr />
     </React.Fragment>
   );
