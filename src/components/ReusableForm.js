@@ -12,7 +12,7 @@ function ReusableForm(props) {
         <h3>Issue</h3>
         <textarea name="issue" placeholder="Describe the issue.." />
         <br />
-        <button>{props.buttonText}</button>
+        <button type="submit">{props.buttonText}</button>
         <hr />
       </form>
     </React.Fragment>

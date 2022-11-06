@@ -1,11 +1,11 @@
 import React from "react";
 
-function TicketDetails(props) {
+function TicketDetail(props) {
   const { ticket } = props;
   return (
     <React.Fragment>
       <hr />
-      <h2>Ticket Details</h2>
+      <h2>Ticket Detail</h2>
       <hr />
       <h3>{ticket.names}</h3>
       <p>{ticket.location}</p>
@@ -19,4 +19,4 @@ function TicketDetails(props) {
   );
 }
 
-export default TicketDetails;
+export default TicketDetail;

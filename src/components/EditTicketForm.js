@@ -3,14 +3,14 @@ import ReusableForm from "./ReusableForm";
 
 function EditTicketForm(props) {
   const { ticket } = props;
+
   function handleEditFormSubmit(event) {
     event.preventDefault();
-
     props.onEditingTicket({
       names: event.target.names.value,
       location: event.target.location.value,
       issue: event.target.issue.value,
-      ticket: ticket.id,
+      id: ticket.id,
     });
   }
   return (
