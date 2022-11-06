@@ -8,10 +8,12 @@ function TicketDetails(props) {
       <h2>Ticket Details</h2>
       <hr />
       <h3>{ticket.names}</h3>
-      <h3>{ticket.location}</h3>
+      <p>{ticket.location}</p>
       <p>
         <em>{ticket.issue}</em>
       </p>
+      <hr />
+      <button onClick={props.onClickingEdit}>Edit Ticket</button>
       <hr />
     </React.Fragment>
   );

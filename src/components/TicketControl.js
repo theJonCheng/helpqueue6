@@ -2,6 +2,7 @@ import React from "react";
 import TicketList from "./TicketList";
 import NewTicketForm from "./NewTicketForm";
 import TicketDetails from "./TicketDetails";
+import EditTicketForm from "./EditTicketForm";
 
 class TicketControl extends React.Component {
   constructor(props) {
@@ -10,12 +11,17 @@ class TicketControl extends React.Component {
       formShowing: false,
       mainTicketList: [],
       selectedTicket: null,
+      editing: false,
     };
   }
 
   handleClick = () => {
     if (this.state.selectedTicket !== null) {
-      this.setState({ selectedTicket: null });
+      this.setState({
+        formShowing: false,
+        selectedTicket: null,
+        editing: false,
+      });
     } else {
       this.setState((prevState) => ({ formShowing: !prevState.formShowing }));
     }
@@ -36,12 +42,28 @@ class TicketControl extends React.Component {
     });
   };
 
+  handleEditClick = () => {
+    this.setState({ editing: true });
+  };
+
+  handleEditTicket = (editedTicket) => {
+    const editedMainTicketList = this.state.mainTicketList.filter((ticket) => ticket.id !== this.state.selectedTicket.id).concat(editedTicket);
+    this.setState({
+      mainTicketList: editedMainTicketList,
+      selectedTicket: null,
+      editing: false,
+    });
+  };
+
   render() {
     let currentlyDisplaying = null;
     let buttonText = null;
 
-    if (this.state.selectedTicket !== null) {
-      currentlyDisplaying = <TicketDetails ticket={this.state.selectedTicket} />;
+    if (this.state.editing) {
+      currentlyDisplaying = <EditTicketForm ticket={this.state.selectedTicket} onEditingTicket={this.handleEditTicket} />;
+      buttonText = "Return to Ticket List";
+    } else if (this.state.selectedTicket !== null) {
+      currentlyDisplaying = <TicketDetails ticket={this.state.selectedTicket} onClickingEdit={this.handleEditClick} />;
       buttonText = "Return to Ticket List";
     } else if (this.state.formShowing) {
       currentlyDisplaying = <NewTicketForm onAddingNewTicket={this.handleAddNewTicket} />;

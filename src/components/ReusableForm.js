@@ -3,7 +3,6 @@ import React from "react";
 function ReusableForm(props) {
   return (
     <React.Fragment>
-      <h2>Reusable Form</h2>
       <form onSubmit={props.onClickingSubmit}>
         <hr />
         <h3>Names</h3>
