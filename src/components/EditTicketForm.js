@@ -1,5 +1,6 @@
 import React from "react";
 import ReusableForm from "./ReusableForm";
+import PropTypes from "prop-types";
 
 function EditTicketForm(props) {
   const { ticket } = props;
@@ -20,5 +21,10 @@ function EditTicketForm(props) {
     </React.Fragment>
   );
 }
+
+EditTicketForm.propTypes = {
+  ticket: PropTypes.object,
+  onEditingTicket: PropTypes.func,
+};
 
 export default EditTicketForm;
